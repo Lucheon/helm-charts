@@ -7,7 +7,7 @@ metadata:
     {{- include "tvheadend.labels" . | nindent 4 }}
 spec:
   accessModes:
-    - {{ .Values.persistence.recordings.accessMode | quote }}
+    {{ toYaml .Values.persistence.recordings.accessModes | indent 4 }}
   resources:
     requests:
       storage: {{ .Values.persistence.recordings.size | quote }}

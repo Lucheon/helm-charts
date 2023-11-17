@@ -67,8 +67,8 @@ persistence:
     storageClass: ""
     annotations: {}
     existingClaim: ""
-    accessMode: ReadWriteOnce
-    accessModes: []
+    accessModes:
+      - ReadWriteOnce
     size: 100Mi
     volumeName: ""
 
@@ -83,8 +83,8 @@ persistence:
     storageClass: ""
     annotations: {}
     existingClaim: ""
-    accessMode: ReadWriteOnce
-    accessModes: []
+    accessModes:
+      - ReadWriteOnce
     size: 10Gi
     volumeName: ""
 
