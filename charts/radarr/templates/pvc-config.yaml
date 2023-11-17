@@ -7,7 +7,7 @@ metadata:
     {{- include "radarr.labels" . | nindent 4 }}
 spec:
   accessModes:
-    - {{ .Values.persistence.config.accessMode | quote }}
+    {{ toYaml .Values.persistence.config.accessModes | indent 4 }}
   resources:
     requests:
       storage: {{ .Values.persistence.config.size | quote }}
