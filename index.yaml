@@ -3,6 +3,16 @@ entries:
   jellyfin:
   - apiVersion: v2
     appVersion: 10.8.11
+    created: "2023-11-17T23:32:00.812862277+01:00"
+    description: A Helm chart to deploy jellyfin on top of Kubernetes
+    digest: b4784fcfe3ac5ab6598bdc7848d5e6e490e82907d4619fd7314b95cc32a9b73a
+    name: jellyfin
+    type: application
+    urls:
+    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/jellyfin-1.0.1/jellyfin-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 10.8.11
     created: "2023-11-06T00:21:25.117014806+01:00"
     description: A Helm chart to deploy jellyfin on top of Kubernetes
     digest: 26b1b00efab8e9715510edbec3525ddf3a8d9002d2186a79ba6d017b3e0f6f10
@@ -12,6 +22,16 @@ entries:
     - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/jellyfin-1.0.0/jellyfin-1.0.0.tgz
     version: 1.0.0
   jellyseerr:
+  - apiVersion: v2
+    appVersion: 1.7.0
+    created: "2023-11-17T23:32:01.143201614+01:00"
+    description: A Helm chart to deploy jellyseerr on to of Kubernetes
+    digest: d2d543b60040a6ba302dcdfed09c5e7776eac51ff75bd973cebe435b4701c2ac
+    name: jellyseerr
+    type: application
+    urls:
+    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/jellyseerr-1.0.1/jellyseerr-1.0.1.tgz
+    version: 1.0.1
   - apiVersion: v2
     appVersion: 1.7.0
     created: "2023-11-06T00:21:25.361193206+01:00"
@@ -25,6 +45,16 @@ entries:
   lidarr:
   - apiVersion: v2
     appVersion: 1.3.5
+    created: "2023-11-17T23:32:02.434044289+01:00"
+    description: A Helm chart to deploy lidarr on top of Kubernetes
+    digest: 6f9da7f4648afd5a8fc8711bfa072b3b147823dd8c7cf15ace6ed2c4c79e6d58
+    name: lidarr
+    type: application
+    urls:
+    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/lidarr-1.0.1/lidarr-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.3.5
     created: "2023-11-06T00:21:25.638500622+01:00"
     description: A Helm chart to deploy lidarr on top of Kubernetes
     digest: 69757e67d0bf2f5dcac367efd81e916d72561c24131dd10434051c1c64e228fd
@@ -34,6 +64,16 @@ entries:
     - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/lidarr-1.0.0/lidarr-1.0.0.tgz
     version: 1.0.0
   radarr:
+  - apiVersion: v2
+    appVersion: 4.7.5
+    created: "2023-11-17T23:32:02.719129134+01:00"
+    description: A Helm chart to deploy radarr on top of Kubernetes
+    digest: cd93a615f8762940af8b29e4544fb3bc5fc929ed7db7633917c8a755591d4c2e
+    name: radarr
+    type: application
+    urls:
+    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/radarr-1.0.1/radarr-1.0.1.tgz
+    version: 1.0.1
   - apiVersion: v2
     appVersion: 4.7.5
     created: "2023-11-06T00:21:25.872240307+01:00"
@@ -47,6 +87,16 @@ entries:
   sonarr:
   - apiVersion: v2
     appVersion: 3.0.10
+    created: "2023-11-17T23:32:03.076909807+01:00"
+    description: A Helm chart to deploy sonarr on top of Kubernetes
+    digest: 0c209ab4e372835e257dfc1de3a2b84551272dfa9558269f2993fcdb7bc96c3f
+    name: sonarr
+    type: application
+    urls:
+    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/sonarr-1.0.1/sonarr-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 3.0.10
     created: "2023-11-06T00:21:26.144907061+01:00"
     description: A Helm chart to deploy sonarr on top of Kubernetes
     digest: 08197793de1274868f777842a90047d74be9641c94508e703ecbd644c67472ba
@@ -58,6 +108,16 @@ entries:
   tvheadend:
   - apiVersion: v2
     appVersion: fe4df311-ls185
+    created: "2023-11-17T23:32:03.347589405+01:00"
+    description: A Helm chart to deploy TVHeadend on to of kubernetes
+    digest: 091366d60367466b968f53c1c121843b0e6ec6e6c52b5dacf1fd93e666451155
+    name: tvheadend
+    type: application
+    urls:
+    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/tvheadend-1.0.1/tvheadend-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: fe4df311-ls185
     created: "2023-11-06T00:21:26.39710965+01:00"
     description: A Helm chart to deploy TVHeadend on to of kubernetes
     digest: 7b7545a434bd984c0b5ac27fbef8a61dfce3bb605a40194f9b512c7367c0c3f7
@@ -66,4 +126,4 @@ entries:
     urls:
     - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/tvheadend-1.0.0/tvheadend-1.0.0.tgz
     version: 1.0.0
-generated: "2023-11-06T00:21:26.397124041+01:00"
+generated: "2023-11-17T23:32:03.347619086+01:00"
