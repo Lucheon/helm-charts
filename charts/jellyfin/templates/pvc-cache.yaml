@@ -2,7 +2,7 @@
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: {{ template "jellyfin.fullname" . }}-recordings
+  name: {{ template "jellyfin.fullname" . }}-cache
   labels:
     {{- include "jellyfin.labels" . | nindent 4 }}
 spec:
