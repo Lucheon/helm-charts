@@ -75,9 +75,9 @@ spec:
       {{- end }}
       volumes:
         - name: config
-          {{- if .Values.persistence.enabled }}
+          {{- if .Values.persistence.config.enabled }}
           persistentVolumeClaim:
-            claimName: {{ .Values.persistence.existingClaim | default (include "jellyseerr.fullname" .) }}
+            claimName: {{ .Values.persistence.config.existingClaim | default ( printf "%s-%s" (include "jellyseerr.fullname" .) "config" ) }}
           {{- else }}
           emptyDir: {}
           {{- end }}
