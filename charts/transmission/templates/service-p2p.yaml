@@ -1,0 +1,21 @@
+{{- if .Values.services.p2p.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "transmission.fullname" . }}-p2p
+  labels:
+    {{- include "transmission.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.services.p2p.type }}
+  ports:
+    - port: {{ .Values.services.p2p.TCPPort }}
+      targetPort: p2ptcp
+      protocol: TCP
+      name: p2ptcp
+    - port: {{ .Values.services.p2p.UDPPort }}
+      targetPort: p2pudp
+      protocol: UDP
+      name: p2pudp
+  selector:
+    {{- include "transmission.selectorLabels" . | nindent 4 }}
+{{- end }}

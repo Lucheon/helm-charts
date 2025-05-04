@@ -1,0 +1,115 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "transmission.fullname" . }}
+  labels:
+    {{- include "transmission.labels" . | nindent 4 }}
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "transmission.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "transmission.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: init-create-folders
+          image: busybox
+          command: ['sh', '-c', 'mkdir -p /downloads/incomplete /downloads/complete']
+          volumeMounts:
+            - mountPath: /downloads
+              name: downloads
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- with .Values.env }}
+          env:
+            {{- range $key, $val := . }}
+            - name: {{ $key }}
+              value: {{ $val | quote }}
+            {{- end }}
+          {{- end }}
+          envFrom:
+          - secretRef:
+              name: {{ include "transmission.fullname" . }}-env
+          ports:
+            - name: http
+              containerPort: {{ .Values.services.http.port }}
+              protocol: TCP
+            - name: ttcp
+              containerPort: {{ .Values.services.p2p.TCPPort }}
+              protocol: TCP
+            - name: tudp
+              containerPort: {{ .Values.services.p2p.UDPPort }}
+              protocol: UDP
+          livenessProbe:
+            tcpSocket:
+              port: {{ .Values.services.http.port }}
+          readinessProbe:
+            tcpSocket:
+              port: {{ .Values.services.http.port }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /config
+              name: data
+            - mountPath: /downloads
+              name: downloads
+            - mountPath: /watch
+              name: watch
+            {{- if .Values.extraVolumeMounts }}
+            {{ toYaml .Values.extraVolumeMounts | nindent 12 }}
+            {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+        - name: data
+          {{- if .Values.persistence.data.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.data.existingClaim | default ( printf "%s" (include "transmission.fullname" .) ) }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+        - name: downloads
+          {{- if .Values.persistence.downloads.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.downloads.existingClaim | default ( printf "%s-%s" (include "transmission.fullname" .) "downloads" ) }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+        - name: watch
+          {{- if .Values.persistence.watch.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.watch.existingClaim | default ( printf "%s-%s" (include "transmission.fullname" .) "watch" ) }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
+        {{- if .Values.extraVolumes }}
+        {{ toYaml .Values.extraVolumes | nindent 8 }}
+        {{- end }}
