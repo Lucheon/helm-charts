@@ -1,5 +1,15 @@
 apiVersion: v1
 entries:
+  flood:
+  - apiVersion: v2
+    created: "2025-05-04T22:55:38.629430596+02:00"
+    description: A Helm chart to deploy flood on top of Kubernetes
+    digest: 1818655823967a9e0c63bc8f0aea52130b81a6b0f821c05da8de9c849f8def1c
+    name: flood
+    type: application
+    urls:
+    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/flood-1.0.0/flood-1.0.0.tgz
+    version: 1.0.0
   jellyfin:
   - apiVersion: v2
     appVersion: 10.8.11
@@ -104,6 +114,17 @@ entries:
     urls:
     - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/radarr-1.0.0/radarr-1.0.0.tgz
     version: 1.0.0
+  sabnzbd:
+  - apiVersion: v2
+    appVersion: 4.10.0
+    created: "2025-05-04T22:55:39.78145144+02:00"
+    description: A Helm chart to deploy sabnzbd on top of Kubernetes
+    digest: 7fb427b3b25b0a718521c7d7551c283f650e3c9f71a57a059eceb70a56c61063
+    name: sabnzbd
+    type: application
+    urls:
+    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/sabnzbd-1.0.0/sabnzbd-1.0.0.tgz
+    version: 1.0.0
   sonarr:
   - apiVersion: v2
     appVersion: 3.0.10
@@ -124,6 +145,16 @@ entries:
     type: application
     urls:
     - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
+    version: 1.0.0
+  transmission:
+  - apiVersion: v2
+    created: "2025-05-04T22:55:40.333209749+02:00"
+    description: A Helm chart to deploy transmission on top of Kubernetes
+    digest: 397bef1d2716168edd36429ae0c2ece3118de40db1efac98141a4ecd45ff7681
+    name: transmission
+    type: application
+    urls:
+    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/transmission-1.0.0/transmission-1.0.0.tgz
     version: 1.0.0
   tvheadend:
   - apiVersion: v2
@@ -146,4 +177,4 @@ entries:
     urls:
     - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/tvheadend-1.0.0/tvheadend-1.0.0.tgz
     version: 1.0.0
-generated: "2023-12-18T13:56:19.099187756+01:00"
+generated: "2025-05-04T22:55:40.577554329+02:00"
