@@ -54,11 +54,11 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: config
-            {{- if and (not .Values.persistence.downloads.enabled) (not .Values.persistence.downloads.empty_dir_if_disabled) }}
+            {{- if or .Values.persistence.downloads.enabled .Values.persistence.downloads.empty_dir_if_disabled }}
             - mountPath: /downloads
               name: downloads
             {{- end }}
-            {{- if and (not .Values.persistence.watch.enabled) (not .Values.persistence.watch.empty_dir_if_disabled) }}
+            {{- if or .Values.persistence.watch.enabled .Values.persistence.watch.empty_dir_if_disabled }}
             - mountPath: /watch
               name: watch
             {{- end }}
@@ -103,11 +103,11 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: config
-            {{- if and (not .Values.persistence.downloads.enabled) (not .Values.persistence.downloads.empty_dir_if_disabled) }}
+            {{- if or .Values.persistence.downloads.enabled .Values.persistence.downloads.empty_dir_if_disabled }}
             - mountPath: /downloads
               name: downloads
             {{- end }}
-            {{- if and (not .Values.persistence.watch.enabled) (not .Values.persistence.watch.empty_dir_if_disabled) }}
+            {{- if or .Values.persistence.watch.enabled .Values.persistence.watch.empty_dir_if_disabled }}
             - mountPath: /watch
               name: watch
             {{- end }}
@@ -137,7 +137,7 @@ spec:
           {{- else }}
           emptyDir: {}
           {{- end }}
-        {{- if and (not .Values.persistence.downloads.enabled) (not .Values.persistence.downloads.empty_dir_if_disabled) }}
+        {{- if or .Values.persistence.downloads.enabled .Values.persistence.downloads.empty_dir_if_disabled }}
         - name: downloads
           {{- if .Values.persistence.downloads.enabled }}
           persistentVolumeClaim:
@@ -146,7 +146,7 @@ spec:
           emptyDir: {}
           {{- end }}
         {{- end }}
-        {{- if and (not .Values.persistence.watch.enabled) (not .Values.persistence.watch.empty_dir_if_disabled) }}
+        {{- if or .Values.persistence.watch.enabled .Values.persistence.watch.empty_dir_if_disabled }}
         - name: watch
           {{- if .Values.persistence.watch.enabled }}
           persistentVolumeClaim:
