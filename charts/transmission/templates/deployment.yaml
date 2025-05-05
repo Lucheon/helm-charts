@@ -36,7 +36,7 @@ spec:
           command:
             - 'sh'
             - '-c'
-            - '[ "$OVERRIDE_CONFIG" = "true" ] || [ ! -e "/config/settings.json" ] && cp "/default_config/settings.json" "/config/settings.json"'
+            - '[ "$OVERRIDE_CONFIG" = "true" ] || [ ! -e "/config/settings.json" ] && cp "/default_config/settings.json" "/config/settings.json" || true'
           volumeMounts:
             - mountPath: /default_config
               name: default-config
