@@ -153,6 +153,7 @@ persistence:
     volumeName: ""
   downloads:
     enabled: false
+    empty_dir_if_disabled: true
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
     ## If undefined (the default) or set to null, no storageClassName spec is
@@ -168,6 +169,7 @@ persistence:
     volumeName: ""
   watch:
     enabled: false
+    empty_dir_if_disabled: true
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
     ## If undefined (the default) or set to null, no storageClassName spec is

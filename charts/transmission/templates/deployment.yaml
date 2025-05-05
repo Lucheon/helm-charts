@@ -52,12 +52,19 @@ spec:
             - '-c'
             - 'mkdir -p {{ join " " .Values.configuration.folders_to_create }}'
           volumeMounts:
-            - mountPath: /downloads
-              name: downloads
-            - mountPath: /watch
-              name: watch
             - mountPath: /config
               name: config
+            {{- if and (not .Values.persistence.downloads.enabled) (not .Values.persistence.downloads.empty_dir_if_disabled) }}
+            - mountPath: /downloads
+              name: downloads
+            {{- end }}
+            {{- if and (not .Values.persistence.watch.enabled) (not .Values.persistence.watch.empty_dir_if_disabled) }}
+            - mountPath: /watch
+              name: watch
+            {{- end }}
+            {{- if .Values.extraVolumeMounts }}
+            {{ toYaml .Values.extraVolumeMounts | nindent 12 }}
+            {{- end }}
         {{- end }}
       containers:
         - name: {{ .Chart.Name }}
@@ -96,10 +103,14 @@ spec:
           volumeMounts:
             - mountPath: /config
               name: config
+            {{- if and (not .Values.persistence.downloads.enabled) (not .Values.persistence.downloads.empty_dir_if_disabled) }}
             - mountPath: /downloads
               name: downloads
+            {{- end }}
+            {{- if and (not .Values.persistence.watch.enabled) (not .Values.persistence.watch.empty_dir_if_disabled) }}
             - mountPath: /watch
               name: watch
+            {{- end }}
             {{- if .Values.extraVolumeMounts }}
             {{ toYaml .Values.extraVolumeMounts | nindent 12 }}
             {{- end }}
@@ -126,6 +137,7 @@ spec:
           {{- else }}
           emptyDir: {}
           {{- end }}
+        {{- if and (not .Values.persistence.downloads.enabled) (not .Values.persistence.downloads.empty_dir_if_disabled) }}
         - name: downloads
           {{- if .Values.persistence.downloads.enabled }}
           persistentVolumeClaim:
@@ -133,6 +145,8 @@ spec:
           {{- else }}
           emptyDir: {}
           {{- end }}
+        {{- end }}
+        {{- if and (not .Values.persistence.watch.enabled) (not .Values.persistence.watch.empty_dir_if_disabled) }}
         - name: watch
           {{- if .Values.persistence.watch.enabled }}
           persistentVolumeClaim:
@@ -140,6 +154,7 @@ spec:
           {{- else }}
           emptyDir: {}
           {{- end }}
+        {{- end }}
         {{- if .Values.extraVolumes }}
         {{ toYaml .Values.extraVolumes | nindent 8 }}
         {{- end }}
