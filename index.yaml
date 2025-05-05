@@ -148,6 +148,15 @@ entries:
     version: 1.0.0
   transmission:
   - apiVersion: v2
+    created: "2025-05-05T17:17:13.359152844+02:00"
+    description: A Helm chart to deploy transmission on top of Kubernetes
+    digest: 0d49591a24e11708759e0d675fd1dda0c70bb538f8f0d88dfa6f9d8d3a7b7eb2
+    name: transmission
+    type: application
+    urls:
+    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/transmission-1.1.1/transmission-1.1.1.tgz
+    version: 1.1.1
+  - apiVersion: v2
     created: "2025-05-05T16:00:00.997343697+02:00"
     description: A Helm chart to deploy transmission on top of Kubernetes
     digest: 41cc195c0a1049fb5212f4ffb6030b7d8ecfbc8b84b7410d27b3cb48b6ff66ae
@@ -195,4 +204,4 @@ entries:
     urls:
     - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/tvheadend-1.0.0/tvheadend-1.0.0.tgz
     version: 1.0.0
-generated: "2025-05-05T16:00:01.506967298+02:00"
+generated: "2025-05-05T17:17:13.661684718+02:00"
