@@ -26,12 +26,39 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       initContainers:
-        - name: init-create-folders
+        - name: init-settings
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
           image: busybox
-          command: ['sh', '-c', 'mkdir -p /downloads/incomplete /downloads/complete']
+          env:
+            - name: "OVERRIDE_CONFIG"
+              value: "{{ .Values.configuration.override }}"
+          command:
+            - 'sh'
+            - '-c'
+            - '[ "$OVERRIDE_CONFIG" = "true" ] || [ ! -e "/config/settings.json" ] && cp "/default_config/settings.json" "/config/settings.json"'
+          volumeMounts:
+            - mountPath: /default_config
+              name: default-config
+            - mountPath: /config
+              name: config
+        {{- if gt (len .Values.configuration.folders_to_create) 0 }}
+        - name: init-create-folders
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: busybox
+          command:
+            - 'sh'
+            - '-c'
+            - 'mkdir -p {{ join " " .Values.configuration.folders_to_create }}'
           volumeMounts:
             - mountPath: /downloads
               name: downloads
+            - mountPath: /watch
+              name: watch
+            - mountPath: /config
+              name: config
+        {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -68,7 +95,7 @@ spec:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
             - mountPath: /config
-              name: data
+              name: config
             - mountPath: /downloads
               name: downloads
             - mountPath: /watch
@@ -89,10 +116,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       volumes:
-        - name: data
-          {{- if .Values.persistence.data.enabled }}
+        - name: default-config
+          secret:
+            secretName: {{ include "transmission.fullname" . }}-config
+        - name: config
+          {{- if .Values.persistence.config.enabled }}
           persistentVolumeClaim:
-            claimName: {{ .Values.persistence.data.existingClaim | default ( printf "%s" (include "transmission.fullname" .) ) }}
+            claimName: {{ .Values.persistence.config.existingClaim | default ( printf "%s" (include "transmission.fullname" .) ) }}
           {{- else }}
           emptyDir: {}
           {{- end }}
