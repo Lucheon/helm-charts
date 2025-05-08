@@ -95,6 +95,15 @@ entries:
     version: 1.0.0
   plex:
   - apiVersion: v2
+    created: "2025-05-08T16:08:20.812547429+02:00"
+    description: A Helm chart to deploy plex on top of Kubernetes
+    digest: d244339d3bc1e610c8e537873fecdbd6cbafca8fafa58f5c304d142bbafc7d0c
+    name: plex
+    type: application
+    urls:
+    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/plex-1.0.1/plex-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
     created: "2025-05-08T14:40:08.042168323+02:00"
     description: A Helm chart to deploy plex on top of Kubernetes
     digest: ad93e8caff0f94170fe7a98d4efcdeb3d066b0d31e1b98c18a0a3e05624261c7
@@ -241,4 +250,4 @@ entries:
     urls:
     - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/tvheadend-1.0.0/tvheadend-1.0.0.tgz
     version: 1.0.0
-generated: "2025-05-08T14:40:11.516200595+02:00"
+generated: "2025-05-08T16:08:24.239331721+02:00"
