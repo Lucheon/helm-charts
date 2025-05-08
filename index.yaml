@@ -93,6 +93,16 @@ entries:
     urls:
     - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/lidarr-1.0.0/lidarr-1.0.0.tgz
     version: 1.0.0
+  plex:
+  - apiVersion: v2
+    created: "2025-05-08T14:40:08.042168323+02:00"
+    description: A Helm chart to deploy plex on top of Kubernetes
+    digest: ad93e8caff0f94170fe7a98d4efcdeb3d066b0d31e1b98c18a0a3e05624261c7
+    name: plex
+    type: application
+    urls:
+    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/plex-1.0.0/plex-1.0.0.tgz
+    version: 1.0.0
   radarr:
   - apiVersion: v2
     appVersion: 4.7.5
@@ -231,4 +241,4 @@ entries:
     urls:
     - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/tvheadend-1.0.0/tvheadend-1.0.0.tgz
     version: 1.0.0
-generated: "2025-05-05T23:36:11.1106128+02:00"
+generated: "2025-05-08T14:40:11.516200595+02:00"
