@@ -16,6 +16,17 @@ secureEnv: {}
   # USER: "user"
   # PASS: "pass"
 
+gluetun:
+  enabled: false
+  image:
+    repository: qmcgaw/gluetun
+    pullPolicy: IfNotPresent
+    tag: latest
+  env: {}
+  secureEnv: {}
+  configFiles: {}
+  privileged: false
+
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
