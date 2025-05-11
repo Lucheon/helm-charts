@@ -112,6 +112,16 @@ entries:
     urls:
     - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/plex-1.0.0/plex-1.0.0.tgz
     version: 1.0.0
+  prowlarr:
+  - apiVersion: v2
+    created: "2025-05-11T13:59:32.189008339+02:00"
+    description: A Helm chart to deploy prowlarr on top of Kubernetes
+    digest: 267a2d2bf9675c039d7ecc635608ea3d1ff61c6f76d5a0b7077c41c25df648e7
+    name: prowlarr
+    type: application
+    urls:
+    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/prowlarr-1.0.0/prowlarr-1.0.0.tgz
+    version: 1.0.0
   radarr:
   - apiVersion: v2
     appVersion: 4.7.5
@@ -250,4 +260,4 @@ entries:
     urls:
     - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/tvheadend-1.0.0/tvheadend-1.0.0.tgz
     version: 1.0.0
-generated: "2025-05-08T16:08:24.239331721+02:00"
+generated: "2025-05-11T13:59:35.114587058+02:00"
