@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "joal.fullname" . }}-config
+  labels:
+    {{- include "joal.labels" . | nindent 4 }}
+data:
+  config.json: |-
+    {{ .Values.configuration.config | nindent 4 }}

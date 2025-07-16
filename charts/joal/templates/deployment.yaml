@@ -1,0 +1,140 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "joal.fullname" . }}
+  labels:
+    {{- include "joal.labels" . | nindent 4 }}
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "joal.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "joal.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: init-settings
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: alpine/git
+          env:
+            - name: "OVERRIDE_CONFIG"
+              value: "{{ .Values.configuration.override }}"
+          command:
+            - 'sh'
+            - '-c'
+            - 'if [ "$OVERRIDE_CONFIG" = "true" ] || [ ! -e "/data/config.json" ]; then cp "/default_config/config.json" "/data/config.json"; fi; git clone https://github.com/anthonyraymond/joal.git; cp -r joal/resources/clients /data/clients; mkdir -p /data/torrents/archived'
+          volumeMounts:
+            - mountPath: /default_config
+              name: default-config
+            - mountPath: /data
+              name: data
+        {{- if .Values.gluetun.enabled }}
+        - name: gluetun
+          image: "{{ .Values.gluetun.image.repository }}:{{ .Values.gluetun.image.tag }}"
+          imagePullPolicy: {{ .Values.gluetun.image.pullPolicy }}
+          restartPolicy: Always
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+            capabilities:
+              add:
+                - NET_ADMIN
+            {{- if .Values.gluetun.privileged }}
+            privileged: true
+            {{- end }}
+          env:
+            - name: FIREWALL_INPUT_PORTS
+              value: "8085"
+            {{- range $key, $val := .Values.gluetun.env }}
+            - name: {{ $key }}
+              value: {{ $val | quote }}
+            {{- end }}
+          {{- if and .Values.gluetun.enabled .Values.gluetun.secureEnv }}
+          envFrom:
+            - secretRef:
+                name: {{ include "joal.fullname" . }}-gluetun-env
+          {{- end }}
+          volumeMounts:
+            - mountPath: /config
+              name: gluetun-config
+              readOnly: true
+        {{- end }}
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          {{- with .Values.env }}
+          env:
+            {{- range $key, $val := . }}
+            - name: {{ $key }}
+              value: {{ $val | quote }}
+            {{- end }}
+          {{- end }}
+          args:
+            - --joal-conf=/data
+            - --spring.main.web-environment=true
+            - --server.port=8085
+            - --joal.ui.path.prefix={{ .Values.configuration.path_prefix }}
+            - --joal.ui.secret-token={{ .Values.configuration.secret_token }}
+          envFrom:
+          - secretRef:
+              name: {{ include "joal.fullname" . }}-env
+          ports:
+            - name: http
+              containerPort: 8085
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /{{ .Values.configuration.path_prefix }}/ui
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /{{ .Values.configuration.path_prefix }}/ui
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /data
+              name: data
+            {{- if .Values.extraVolumeMounts }}
+            {{ toYaml .Values.extraVolumeMounts | nindent 12 }}
+            {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+        - name: default-config
+          configMap:
+            name: {{ include "joal.fullname" . }}-config
+        - name: data
+          {{- if .Values.persistence.data.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.data.existingClaim | default ( printf "%s" (include "joal.fullname" .) ) }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
