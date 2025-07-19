@@ -55,17 +55,9 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-extraVolumes:
-  - name: tvseries
-    emptyDir: {}
-  - name: downloads
-    emptyDir: {}
+extraVolumes: []
 
-extraVolumeMounts:
-  - mountPath: /tv
-    name: tvseries
-  - mountPath: /downloads
-    name: downloads
+extraVolumeMounts: []
 
 persistence:
   config:
