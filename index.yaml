@@ -8,7 +8,7 @@ entries:
     name: flood
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/flood-1.0.0/flood-1.0.0.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/flood-1.0.0/flood-1.0.0.tgz
     version: 1.0.0
   jellyfin:
   - apiVersion: v2
@@ -19,7 +19,7 @@ entries:
     name: jellyfin
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/jellyfin-1.0.2/jellyfin-1.0.2.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/jellyfin-1.0.2/jellyfin-1.0.2.tgz
     version: 1.0.2
   - apiVersion: v2
     appVersion: 10.8.11
@@ -29,7 +29,7 @@ entries:
     name: jellyfin
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/jellyfin-1.0.1/jellyfin-1.0.1.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/jellyfin-1.0.1/jellyfin-1.0.1.tgz
     version: 1.0.1
   - apiVersion: v2
     appVersion: 10.8.11
@@ -39,7 +39,7 @@ entries:
     name: jellyfin
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/jellyfin-1.0.0/jellyfin-1.0.0.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/jellyfin-1.0.0/jellyfin-1.0.0.tgz
     version: 1.0.0
   jellyseerr:
   - apiVersion: v2
@@ -50,7 +50,7 @@ entries:
     name: jellyseerr
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/jellyseerr-1.0.2/jellyseerr-1.0.2.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/jellyseerr-1.0.2/jellyseerr-1.0.2.tgz
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.7.0
@@ -60,7 +60,7 @@ entries:
     name: jellyseerr
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/jellyseerr-1.0.1/jellyseerr-1.0.1.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/jellyseerr-1.0.1/jellyseerr-1.0.1.tgz
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.7.0
@@ -70,7 +70,7 @@ entries:
     name: jellyseerr
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/jellyseerr-1.0.0/jellyseerr-1.0.0.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/jellyseerr-1.0.0/jellyseerr-1.0.0.tgz
     version: 1.0.0
   joal:
   - apiVersion: v2
@@ -80,7 +80,7 @@ entries:
     name: joal
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/joal-1.0.0/joal-1.0.0.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/joal-1.0.0/joal-1.0.0.tgz
     version: 1.0.0
   lidarr:
   - apiVersion: v2
@@ -91,7 +91,7 @@ entries:
     name: lidarr
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/lidarr-1.0.1/lidarr-1.0.1.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/lidarr-1.0.1/lidarr-1.0.1.tgz
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.3.5
@@ -101,7 +101,7 @@ entries:
     name: lidarr
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/lidarr-1.0.0/lidarr-1.0.0.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/lidarr-1.0.0/lidarr-1.0.0.tgz
     version: 1.0.0
   plex:
   - apiVersion: v2
@@ -111,7 +111,7 @@ entries:
     name: plex
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/plex-1.0.1/plex-1.0.1.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/plex-1.0.1/plex-1.0.1.tgz
     version: 1.0.1
   - apiVersion: v2
     created: "2025-05-08T14:40:08.042168323+02:00"
@@ -120,7 +120,7 @@ entries:
     name: plex
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/plex-1.0.0/plex-1.0.0.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/plex-1.0.0/plex-1.0.0.tgz
     version: 1.0.0
   profilarr:
   - apiVersion: v2
@@ -130,7 +130,7 @@ entries:
     name: profilarr
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/profilarr-1.0.0/profilarr-1.0.0.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/profilarr-1.0.0/profilarr-1.0.0.tgz
     version: 1.0.0
   prowlarr:
   - apiVersion: v2
@@ -140,7 +140,7 @@ entries:
     name: prowlarr
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/prowlarr-1.0.0/prowlarr-1.0.0.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/prowlarr-1.0.0/prowlarr-1.0.0.tgz
     version: 1.0.0
   radarr:
   - apiVersion: v2
@@ -151,7 +151,7 @@ entries:
     name: radarr
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/radarr-1.0.1/radarr-1.0.1.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/radarr-1.0.1/radarr-1.0.1.tgz
     version: 1.0.1
   - apiVersion: v2
     appVersion: 4.7.5
@@ -161,7 +161,7 @@ entries:
     name: radarr
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/radarr-1.0.0/radarr-1.0.0.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/radarr-1.0.0/radarr-1.0.0.tgz
     version: 1.0.0
   sabnzbd:
   - apiVersion: v2
@@ -172,7 +172,7 @@ entries:
     name: sabnzbd
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/sabnzbd-1.0.0/sabnzbd-1.0.0.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/sabnzbd-1.0.0/sabnzbd-1.0.0.tgz
     version: 1.0.0
   sonarr:
   - apiVersion: v2
@@ -183,7 +183,7 @@ entries:
     name: sonarr
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/sonarr-1.0.1/sonarr-1.0.1.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/sonarr-1.0.1/sonarr-1.0.1.tgz
     version: 1.0.1
   - apiVersion: v2
     appVersion: 3.0.10
@@ -193,7 +193,7 @@ entries:
     name: sonarr
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
   transmission:
   - apiVersion: v2
@@ -203,7 +203,7 @@ entries:
     name: transmission
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/transmission-1.2.0/transmission-1.2.0.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/transmission-1.2.0/transmission-1.2.0.tgz
     version: 1.2.0
   - apiVersion: v2
     created: "2025-05-05T23:36:10.848201905+02:00"
@@ -212,7 +212,7 @@ entries:
     name: transmission
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/transmission-1.1.4/transmission-1.1.4.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/transmission-1.1.4/transmission-1.1.4.tgz
     version: 1.1.4
   - apiVersion: v2
     created: "2025-05-05T22:57:59.782103394+02:00"
@@ -221,7 +221,7 @@ entries:
     name: transmission
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/transmission-1.1.3/transmission-1.1.3.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/transmission-1.1.3/transmission-1.1.3.tgz
     version: 1.1.3
   - apiVersion: v2
     created: "2025-05-05T22:48:04.31079036+02:00"
@@ -230,7 +230,7 @@ entries:
     name: transmission
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/transmission-1.1.2/transmission-1.1.2.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/transmission-1.1.2/transmission-1.1.2.tgz
     version: 1.1.2
   - apiVersion: v2
     created: "2025-05-05T17:17:13.359152844+02:00"
@@ -239,7 +239,7 @@ entries:
     name: transmission
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/transmission-1.1.1/transmission-1.1.1.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/transmission-1.1.1/transmission-1.1.1.tgz
     version: 1.1.1
   - apiVersion: v2
     created: "2025-05-05T16:00:00.997343697+02:00"
@@ -248,7 +248,7 @@ entries:
     name: transmission
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/transmission-1.1.0/transmission-1.1.0.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/transmission-1.1.0/transmission-1.1.0.tgz
     version: 1.1.0
   - apiVersion: v2
     created: "2025-05-04T23:48:38.218410721+02:00"
@@ -257,7 +257,7 @@ entries:
     name: transmission
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/transmission-1.0.1/transmission-1.0.1.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/transmission-1.0.1/transmission-1.0.1.tgz
     version: 1.0.1
   - apiVersion: v2
     created: "2025-05-04T22:55:40.333209749+02:00"
@@ -266,7 +266,7 @@ entries:
     name: transmission
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/transmission-1.0.0/transmission-1.0.0.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/transmission-1.0.0/transmission-1.0.0.tgz
     version: 1.0.0
   tvheadend:
   - apiVersion: v2
@@ -277,7 +277,7 @@ entries:
     name: tvheadend
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/tvheadend-1.0.1/tvheadend-1.0.1.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/tvheadend-1.0.1/tvheadend-1.0.1.tgz
     version: 1.0.1
   - apiVersion: v2
     appVersion: fe4df311-ls185
@@ -287,6 +287,6 @@ entries:
     name: tvheadend
     type: application
     urls:
-    - https://github.com/EtienneBarbier/k8s-home-helm-charts/releases/download/tvheadend-1.0.0/tvheadend-1.0.0.tgz
+    - https://github.com/Lucheon/helm-charts/releases/download/tvheadend-1.0.0/tvheadend-1.0.0.tgz
     version: 1.0.0
 generated: "2025-07-17T23:14:55.610406104+02:00"
