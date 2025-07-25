@@ -1,0 +1,112 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "airsonic.fullname" . }}
+  labels:
+    {{- include "airsonic.labels" . | nindent 4 }}
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      {{- include "airsonic.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "airsonic.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: init-settings
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: alpine/git
+          env:
+            - name: "OVERRIDE_CONFIG"
+              value: "{{ .Values.configuration.override }}"
+          command:
+            - 'sh'
+            - '-c'
+            - 'if [ "$OVERRIDE_CONFIG" = "true" ]; then cp "/default_properties/airsonic.properties" "/airsonic/data/airsonic.properties"; fi'
+          volumeMounts:
+            - mountPath: /default_properties
+              name: default-properties
+            - mountPath: /airsonic/data
+              name: data
+              subPath: data
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: "AIRSONIC_PORT"
+              value: "4040"
+          {{- with .Values.env }}
+            {{- range $key, $val := . }}
+            - name: {{ $key }}
+              value: {{ $val | quote }}
+            {{- end }}
+          {{- end }}
+          args: {{ .Values.args }}
+          envFrom:
+          - secretRef:
+              name: {{ include "airsonic.fullname" . }}-env
+          ports:
+            - name: http
+              containerPort: 4040
+              protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: http
+          readinessProbe:
+            tcpSocket:
+              port: http
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /airsonic/data
+              name: data
+              subPath: data
+            - mountPath: /airsonic/podcasts
+              name: data
+              subPath: podcasts
+            - mountPath: /airsonic/playlists
+              name: data
+              subPath: playlists
+            {{- if .Values.extraVolumeMounts }}
+            {{ toYaml .Values.extraVolumeMounts | nindent 12 }}
+            {{- end }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      volumes:
+        - name: default-properties
+          configMap:
+            name: {{ include "airsonic.fullname" . }}-properties
+        - name: data
+          {{- if .Values.persistence.data.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.persistence.data.existingClaim | default ( printf "%s" (include "airsonic.fullname" .) ) }}
+          {{- else }}
+          emptyDir: {}
+          {{- end }}
