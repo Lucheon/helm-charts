@@ -2,6 +2,15 @@ apiVersion: v1
 entries:
   airsonic:
   - apiVersion: v2
+    created: "2025-07-26T18:03:22.013342914+02:00"
+    description: A Helm chart to deploy airsonic on top of Kubernetes
+    digest: f3add746fde22183eb6105c39a0f071313bbfef31d0fe19f6dab3d2e2ec1e6fb
+    name: airsonic
+    type: application
+    urls:
+    - https://github.com/Lucheon/helm-charts/releases/download/airsonic-1.0.1/airsonic-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
     created: "2025-07-26T14:28:23.046415269+02:00"
     description: A Helm chart to deploy airsonic on top of Kubernetes
     digest: fc04850956100029a8883299a2e0a64281b18bc932d44c02ced5a2e71dc22afc
@@ -83,6 +92,15 @@ entries:
     - https://github.com/Lucheon/helm-charts/releases/download/jellyseerr-1.0.0/jellyseerr-1.0.0.tgz
     version: 1.0.0
   joal:
+  - apiVersion: v2
+    created: "2025-07-26T18:03:23.530999979+02:00"
+    description: A Helm chart to deploy joal on top of Kubernetes
+    digest: f52a86c2c68adae1bff59e777d71a27e014ae36097b76a168f056460cbd27399
+    name: joal
+    type: application
+    urls:
+    - https://github.com/Lucheon/helm-charts/releases/download/joal-1.0.1/joal-1.0.1.tgz
+    version: 1.0.1
   - apiVersion: v2
     created: "2025-07-17T23:14:48.034352831+02:00"
     description: A Helm chart to deploy joal on top of Kubernetes
@@ -299,4 +317,4 @@ entries:
     urls:
     - https://github.com/Lucheon/helm-charts/releases/download/tvheadend-1.0.0/tvheadend-1.0.0.tgz
     version: 1.0.0
-generated: "2025-07-26T14:28:29.163164263+02:00"
+generated: "2025-07-26T18:03:28.751908301+02:00"
