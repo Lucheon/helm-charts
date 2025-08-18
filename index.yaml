@@ -2,6 +2,15 @@ apiVersion: v1
 entries:
   airsonic:
   - apiVersion: v2
+    created: "2025-08-18T23:40:53.074589943+02:00"
+    description: A Helm chart to deploy airsonic on top of Kubernetes
+    digest: 46a4046010f9554c71073debe78a0b3b71eb94809e12515c5b7284d2c545415f
+    name: airsonic
+    type: application
+    urls:
+    - https://github.com/Lucheon/helm-charts/releases/download/airsonic-1.0.2/airsonic-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     created: "2025-07-26T18:03:22.013342914+02:00"
     description: A Helm chart to deploy airsonic on top of Kubernetes
     digest: f3add746fde22183eb6105c39a0f071313bbfef31d0fe19f6dab3d2e2ec1e6fb
@@ -92,6 +101,15 @@ entries:
     - https://github.com/Lucheon/helm-charts/releases/download/jellyseerr-1.0.0/jellyseerr-1.0.0.tgz
     version: 1.0.0
   joal:
+  - apiVersion: v2
+    created: "2025-08-18T23:40:54.734263189+02:00"
+    description: A Helm chart to deploy joal on top of Kubernetes
+    digest: b67a58e105ae60cdb63a1f9ad4094ea09e9c872b7ce307ee09cb5e6ed908578d
+    name: joal
+    type: application
+    urls:
+    - https://github.com/Lucheon/helm-charts/releases/download/joal-1.0.2/joal-1.0.2.tgz
+    version: 1.0.2
   - apiVersion: v2
     created: "2025-07-26T18:03:23.530999979+02:00"
     description: A Helm chart to deploy joal on top of Kubernetes
@@ -243,6 +261,15 @@ entries:
     version: 1.0.0
   transmission:
   - apiVersion: v2
+    created: "2025-08-18T23:40:58.474113906+02:00"
+    description: A Helm chart to deploy transmission on top of Kubernetes
+    digest: 369f795bde0da64050338bd803826b91ff4c8f005d6297d809fe13255a5f282c
+    name: transmission
+    type: application
+    urls:
+    - https://github.com/Lucheon/helm-charts/releases/download/transmission-1.2.1/transmission-1.2.1.tgz
+    version: 1.2.1
+  - apiVersion: v2
     created: "2025-05-11T23:46:32.352530293+02:00"
     description: A Helm chart to deploy transmission on top of Kubernetes
     digest: 4003fbd8fd6e498437da7d5a787451f06ba71ad1f27d277acdbf1732f417af79
@@ -335,4 +362,4 @@ entries:
     urls:
     - https://github.com/Lucheon/helm-charts/releases/download/tvheadend-1.0.0/tvheadend-1.0.0.tgz
     version: 1.0.0
-generated: "2025-08-18T22:59:39.913439202+02:00"
+generated: "2025-08-18T23:40:58.856958799+02:00"
