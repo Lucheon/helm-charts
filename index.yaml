@@ -133,6 +133,15 @@ entries:
     version: 1.0.0
   plex:
   - apiVersion: v2
+    created: "2025-08-18T22:59:37.55754707+02:00"
+    description: A Helm chart to deploy plex on top of Kubernetes
+    digest: 636c70b632e7ddf11f51c76c09575a8246dd6146a58ba524e59ac7b3e529fb9e
+    name: plex
+    type: application
+    urls:
+    - https://github.com/Lucheon/helm-charts/releases/download/plex-1.0.3/plex-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
     created: "2025-08-18T22:55:10.8001366+02:00"
     description: A Helm chart to deploy plex on top of Kubernetes
     digest: 2e40cc558d9b57c35881ba2ea647b3347d2b03c468d2d5e37722e3bd227d667b
@@ -326,4 +335,4 @@ entries:
     urls:
     - https://github.com/Lucheon/helm-charts/releases/download/tvheadend-1.0.0/tvheadend-1.0.0.tgz
     version: 1.0.0
-generated: "2025-08-18T22:55:13.563348219+02:00"
+generated: "2025-08-18T22:59:39.913439202+02:00"
