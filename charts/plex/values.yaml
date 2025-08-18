@@ -35,6 +35,8 @@ service:
   type: ClusterIP
   port: 32400
 
+serviveAnnotations: {}
+
 ingress:
   enabled: false
   className: ""

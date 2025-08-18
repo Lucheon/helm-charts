@@ -4,6 +4,8 @@ metadata:
   name: {{ include "plex.fullname" . }}
   labels:
     {{- include "plex.labels" . | nindent 4 }}
+  annotations:
+    {{ .Values.serviceAnnotations | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
