@@ -2,6 +2,15 @@ apiVersion: v1
 entries:
   airsonic:
   - apiVersion: v2
+    created: "2025-09-21T15:04:14.962609323+02:00"
+    description: A Helm chart to deploy airsonic on top of Kubernetes
+    digest: 13e6035ed219b0b58ac619ffe78306b1d333f88369cf22a54502242a5a8aa4e7
+    name: airsonic
+    type: application
+    urls:
+    - https://github.com/Lucheon/helm-charts/releases/download/airsonic-1.1.0/airsonic-1.1.0.tgz
+    version: 1.1.0
+  - apiVersion: v2
     created: "2025-08-18T23:40:53.074589943+02:00"
     description: A Helm chart to deploy airsonic on top of Kubernetes
     digest: 46a4046010f9554c71073debe78a0b3b71eb94809e12515c5b7284d2c545415f
@@ -362,4 +371,4 @@ entries:
     urls:
     - https://github.com/Lucheon/helm-charts/releases/download/tvheadend-1.0.0/tvheadend-1.0.0.tgz
     version: 1.0.0
-generated: "2025-08-18T23:40:58.856958799+02:00"
+generated: "2025-09-21T15:04:20.901079203+02:00"
