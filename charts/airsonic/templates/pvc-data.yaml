@@ -5,9 +5,16 @@ metadata:
   name: {{ template "airsonic.fullname" . }}-data
   labels:
     {{- include "airsonic.labels" . | nindent 4 }}
+  annotations:
+    {{- with .Values.persistence.data.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- if .Values.persistence.data.keepOnUninstall }}
+    helm.sh/resource-policy: keep
+    {{- end }}
 spec:
   accessModes:
-    {{ toYaml .Values.persistence.data.accessModes | indent 4 }}
+    {{- toYaml .Values.persistence.data.accessModes | nindent 4 }}
   resources:
     requests:
       storage: {{ .Values.persistence.data.size | quote }}
@@ -17,6 +24,14 @@ spec:
   {{- else }}
   storageClassName: "{{ .Values.persistence.data.storageClass }}"
   {{- end }}
+  {{- end }}
+  {{- if .Values.persistence.data.dataSource }}
+  dataSource:
+    {{- toYaml .Values.persistence.data.dataSource | nindent 4 }}
+  {{- end }}
+  {{- if .Values.persistence.data.dataSourceRef }}
+  dataSourceRef:
+    {{- toYaml .Values.persistence.data.dataSourceRef | nindent 4 }}
   {{- end }}
   {{- if .Values.persistence.data.volumeName }}
   volumeName: {{ .Values.persistence.data.volumeName }}
