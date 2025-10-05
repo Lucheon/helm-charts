@@ -1,0 +1,39 @@
+{{- if and .Values.persistence.database.enabled (not .Values.persistence.database.existingClaim) }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ template "pterodactyl-panel.fullname" . }}-database
+  labels:
+    {{- include "pterodactyl-panel.labels" . | nindent 4 }}
+  annotations:
+    {{- with .Values.persistence.database.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- if .Values.persistence.database.keepOnUninstall }}
+    helm.sh/resource-policy: keep
+    {{- end }}
+spec:
+  accessModes:
+    {{- toYaml .Values.persistence.database.accessModes | nindent 4 }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.database.size | quote }}
+  {{- if .Values.persistence.database.storageClass }}
+  {{- if (eq "-" .Values.persistence.database.storageClass) }}
+  storageClassName: ""
+  {{- else }}
+  storageClassName: "{{ .Values.persistence.database.storageClass }}"
+  {{- end }}
+  {{- end }}
+  {{- if .Values.persistence.database.dataSource }}
+  dataSource:
+    {{- toYaml .Values.persistence.database.dataSource | nindent 4 }}
+  {{- end }}
+  {{- if .Values.persistence.database.dataSourceRef }}
+  dataSourceRef:
+    {{- toYaml .Values.persistence.database.dataSourceRef | nindent 4 }}
+  {{- end }}
+  {{- if .Values.persistence.database.volumeName }}
+  volumeName: {{ .Values.persistence.database.volumeName }}
+  {{- end }}
+{{- end }}
