@@ -215,6 +215,16 @@ entries:
     urls:
     - https://github.com/Lucheon/helm-charts/releases/download/prowlarr-1.0.0/prowlarr-1.0.0.tgz
     version: 1.0.0
+  pterodactyl-panel:
+  - apiVersion: v2
+    created: "2025-10-05T23:11:22.891903301+02:00"
+    description: A Helm chart to deploy pterodactyl-panel on top of Kubernetes
+    digest: 1200e1eb49674512b475b7c3d7b556d7edd65eaf89012de1b4f48c432e194d69
+    name: pterodactyl-panel
+    type: application
+    urls:
+    - https://github.com/Lucheon/helm-charts/releases/download/pterodactyl-panel-1.0.0/pterodactyl-panel-1.0.0.tgz
+    version: 1.0.0
   radarr:
   - apiVersion: v2
     appVersion: 4.7.5
@@ -371,4 +381,4 @@ entries:
     urls:
     - https://github.com/Lucheon/helm-charts/releases/download/tvheadend-1.0.0/tvheadend-1.0.0.tgz
     version: 1.0.0
-generated: "2025-09-21T15:04:20.901079203+02:00"
+generated: "2025-10-05T23:11:24.559711311+02:00"
