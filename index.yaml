@@ -111,6 +111,15 @@ entries:
     version: 1.0.0
   joal:
   - apiVersion: v2
+    created: "2025-10-22T23:37:44.071227419+02:00"
+    description: A Helm chart to deploy joal on top of Kubernetes
+    digest: 673e34ece4462c0b9bb0b3b0e11eb92114eab77f8b66d246893cb22fed358e45
+    name: joal
+    type: application
+    urls:
+    - https://github.com/Lucheon/helm-charts/releases/download/joal-1.0.3/joal-1.0.3.tgz
+    version: 1.0.3
+  - apiVersion: v2
     created: "2025-08-18T23:40:54.734263189+02:00"
     description: A Helm chart to deploy joal on top of Kubernetes
     digest: b67a58e105ae60cdb63a1f9ad4094ea09e9c872b7ce307ee09cb5e6ed908578d
@@ -381,4 +390,4 @@ entries:
     urls:
     - https://github.com/Lucheon/helm-charts/releases/download/tvheadend-1.0.0/tvheadend-1.0.0.tgz
     version: 1.0.0
-generated: "2025-10-05T23:11:24.559711311+02:00"
+generated: "2025-10-22T23:37:47.746523168+02:00"
