@@ -138,6 +138,11 @@ spec:
           {{- else }}
           emptyDir: {}
           {{- end }}
+        {{- if and .Values.gluetun.enabled }}
+        - name: gluetun-config
+          secret:
+            secretName: {{ include "joal.fullname" . }}-gluetun-config
+        {{- end }}
         {{- if .Values.extraVolumes }}
         {{ toYaml .Values.extraVolumes | nindent 8 }}
         {{- end }}
