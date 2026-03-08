@@ -3,6 +3,13 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: {{ template "jellyfin.fullname" . }}-config
+  annotations:
+    {{- with .Values.persistence.config.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- if .Values.persistence.config.keepOnUninstall }}
+    helm.sh/resource-policy: keep
+    {{- end }}
   labels:
     {{- include "jellyfin.labels" . | nindent 4 }}
 spec:
