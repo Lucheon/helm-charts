@@ -6,10 +6,10 @@ metadata:
   labels:
     {{- include "transmission.labels" . | nindent 4 }}
   annotations:
-    {{- with .Values.persistence.config.annotations }}
+    {{- with .Values.persistence.downloads.annotations }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
-    {{- if .Values.persistence.config.keepOnUninstall }}
+    {{- if .Values.persistence.downloads.keepOnUninstall }}
     helm.sh/resource-policy: keep
     {{- end }}
 spec:
