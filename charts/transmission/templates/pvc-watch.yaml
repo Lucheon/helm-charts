@@ -5,6 +5,13 @@ metadata:
   name: {{ template "transmission.fullname" . }}-watch
   labels:
     {{- include "transmission.labels" . | nindent 4 }}
+  annotations:
+    {{- with .Values.persistence.watch.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- if .Values.persistence.watch.keepOnUninstall }}
+    helm.sh/resource-policy: keep
+    {{- end }}
 spec:
   accessModes:
     {{ toYaml .Values.persistence.watch.accessModes | indent 4 }}

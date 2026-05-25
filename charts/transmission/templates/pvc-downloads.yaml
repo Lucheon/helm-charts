@@ -5,6 +5,13 @@ metadata:
   name: {{ template "transmission.fullname" . }}-downloads
   labels:
     {{- include "transmission.labels" . | nindent 4 }}
+  annotations:
+    {{- with .Values.persistence.config.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+    {{- if .Values.persistence.config.keepOnUninstall }}
+    helm.sh/resource-policy: keep
+    {{- end }}
 spec:
   accessModes:
     {{ toYaml .Values.persistence.downloads.accessModes | indent 4 }}
