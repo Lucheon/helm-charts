@@ -1,5 +1,0 @@
-apiVersion: v2
-name: profilarr
-description: A Helm chart to deploy profilarr on top of Kubernetes
-type: application
-version: 1.0.0

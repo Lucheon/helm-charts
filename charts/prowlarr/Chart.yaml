@@ -1,5 +1,0 @@
-apiVersion: v2
-name: prowlarr
-description: A Helm chart to deploy prowlarr on top of Kubernetes
-type: application
-version: 1.0.0

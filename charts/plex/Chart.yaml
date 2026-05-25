@@ -1,5 +1,0 @@
-apiVersion: v2
-name: plex
-description: A Helm chart to deploy plex on top of Kubernetes
-type: application
-version: 1.0.3
