@@ -1,0 +1,53 @@
+---
+strategy:
+  type: Recreate
+
+image:
+  repository: ciuse99/suggestarr
+  pullPolicy: IfNotPresent
+  tag: latest
+
+env: {}
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 5000
+  enabled: true
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: suggestarr.lab.looffu.fr
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+persistence:
+  config:
+    enabled: false
+    storageClass: ""
+    annotations: {}
+    existingClaim: ""
+    accessModes:
+      - ReadWriteOnce
+    size: 1Gi
+    volumeName: ""
+
+resources: {}
+
+nodeSelector: {}
+tolerations: []
+affinity: {}

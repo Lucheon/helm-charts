@@ -1,0 +1,11 @@
+SuggestArr has been deployed.
+
+Access the web interface at:
+{{- if .Values.ingress.enabled }}
+  {{- range .Values.ingress.hosts }}
+  https://{{ .host }}
+  {{- end }}
+{{- else }}
+  kubectl port-forward -n {{ .Release.Namespace }} svc/{{ include "suggestarr.fullname" . }} 5000:5000
+  Then open: http://localhost:5000
+{{- end }}
