@@ -306,6 +306,17 @@ entries:
     urls:
     - https://github.com/Lucheon/helm-charts/releases/download/sonarr-1.0.0/sonarr-1.0.0.tgz
     version: 1.0.0
+  suggestarr:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2026-05-27T16:43:25.405679254+02:00"
+    description: A Helm chart to deploy SuggestArr on top of Kubernetes
+    digest: 1b52bf358aa2889762766eb5b4c0e226da05dcc26c43f37aa648b8fd5d3a4bb4
+    name: suggestarr
+    type: application
+    urls:
+    - https://github.com/Lucheon/helm-charts/releases/download/suggestarr-1.0.0/suggestarr-1.0.0.tgz
+    version: 1.0.0
   transmission:
   - apiVersion: v2
     created: "2026-05-25T17:22:51.573766693+02:00"
@@ -427,4 +438,4 @@ entries:
     urls:
     - https://github.com/Lucheon/helm-charts/releases/download/tvheadend-1.0.0/tvheadend-1.0.0.tgz
     version: 1.0.0
-generated: "2026-05-25T17:22:51.864724792+02:00"
+generated: "2026-05-27T16:43:27.246721182+02:00"
